@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Catagories from '../Pages/Catagories/Catagories';
+import {Link} from "react-router-dom"
 
 const Sidebar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -22,10 +23,10 @@ const Sidebar = () => {
             </a>
           </li>
           <li className="nav-item mb-2 ">
-            <a className="nav-link text-secondary" href="#">
-              <i className="fas fa-user font-weight-bold"></i>{" "}
+            <Link to="/" className="nav-link text-secondary">
+              <i className="fas fa-user font-weight-bold"></i>
               <span className="ml-3">Dashboard</span>
-            </a>
+            </Link>
           </li>
           <li className="nav-item mb-2">
             <a
@@ -40,23 +41,28 @@ const Sidebar = () => {
             <div className={`collapse ${isOpen ? "show" : ""}`} id="submenu1">
               <ul className="nav flex-column pl-3">
                 <li className="nav-item mb-2">
-                  <a className="nav-link text-secondary" href="#">
-                    <i class="fa-solid fa-plus"></i>&nbsp; Add New
-                  </a>
+                  <Link
+                    to="/catagories/add"
+                    className="nav-link text-secondary"
+                  >
+                    <i class="fa-regular fa-circle"></i>&nbsp; Add New
+                  </Link>
                 </li>
                 <li className="nav-item mb-2">
-                  <a className="nav-link text-secondary" href="#">
-                    <i class="fa-regular fa-circle"></i>&nbsp;
-                    List
-                  </a>
+                  <Link
+                    to="/catagories/list"
+                    className="nav-link text-secondary"
+                  >
+                    <i class="fa-regular fa-circle"></i>&nbsp; List
+                  </Link>
                 </li>
               </ul>
             </div>
             <li class="nav-item mb-2">
-              <a class="nav-link text-secondary" href="#">
-                <i class="far fa-chart-bar font-weight-bold"></i>{" "}
+              <Link to="/item" class="nav-link text-secondary" >
+                <i class="far fa-chart-bar font-weight-bold"></i>
                 <span className="ml-3">Item</span>
-              </a>
+              </Link>
             </li>
             <li class="nav-item mb-2">
               <a class="nav-link text-secondary" href="#">
