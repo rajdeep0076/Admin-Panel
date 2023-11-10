@@ -1,0 +1,98 @@
+import React, { useState } from 'react';
+import Catagories from '../Pages/Catagories/Catagories';
+
+const Sidebar = () => {
+    const [isOpen, setIsOpen] = useState(false);
+
+    const toggleDropdown = () => {
+        setIsOpen(!isOpen);
+    };
+
+    return (
+      <div
+        className="col-md-3 col-lg-2 sidebar-offcanvas pl-0"
+        id="sidebar"
+        role="navigation"
+        style={{ backgroundColor: "#e9ecef" }}
+      >
+        <ul className="nav flex-column sticky-top pl-0 pt-5 p-3 mt-3 ">
+          <li className="nav-item mb-2 mt-3">
+            <a className="nav-link text-secondary" href="#">
+              <h5>Jacob Nejam</h5>
+            </a>
+          </li>
+          <li className="nav-item mb-2 ">
+            <a className="nav-link text-secondary" href="#">
+              <i className="fas fa-user font-weight-bold"></i>{" "}
+              <span className="ml-3">Dashboard</span>
+            </a>
+          </li>
+          <li className="nav-item mb-2">
+            <a
+              className="nav-link text-secondary"
+              href="#"
+              onClick={toggleDropdown}
+              aria-expanded={isOpen ? "true" : "false"}
+            >
+              <i className="far fa-file-word font-weight-bold"></i>{" "}
+              <span className="ml-3">Categories</span>
+            </a>
+            <div className={`collapse ${isOpen ? "show" : ""}`} id="submenu1">
+              <ul className="nav flex-column pl-3">
+                <li className="nav-item mb-2">
+                  <a className="nav-link text-secondary" href="#">
+                    <i class="fa-solid fa-plus"></i>&nbsp; Add New
+                  </a>
+                </li>
+                <li className="nav-item mb-2">
+                  <a className="nav-link text-secondary" href="#">
+                    <i class="fa-regular fa-circle"></i>&nbsp;
+                    List
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <li class="nav-item mb-2">
+              <a class="nav-link text-secondary" href="#">
+                <i class="far fa-chart-bar font-weight-bold"></i>{" "}
+                <span className="ml-3">Item</span>
+              </a>
+            </li>
+            <li class="nav-item mb-2">
+              <a class="nav-link text-secondary" href="#">
+                <i class="fas fa-file-export font-weight-bold"></i>
+                <span className="ml-3">Pages</span>
+              </a>
+            </li>
+            <li class="nav-item mb-2">
+              <a class="nav-link text-secondary" href="#">
+                <i class="fas fa-tablet-alt font-weight-bold"></i>
+                <span className="ml-3">Messages</span>
+              </a>
+            </li>
+            <li class="nav-item mb-2">
+              <a class="nav-link text-secondary" href="#">
+                <i class="fas fa-atom font-weight-bold"></i>{" "}
+                <span className="ml-3">Users</span>
+              </a>
+            </li>
+            <li class="nav-item mb-2">
+              <a class="nav-link text-secondary" href="#">
+                <i class="fa-solid fa-phone font-weight-bold"></i>
+                <span className="ml-3">Contact Information</span>
+              </a>
+            </li>
+            <li class="nav-item mb-2">
+              <a class="nav-link text-secondary" href="#">
+                <i class="fa-solid fa-gear font-weight-bold"></i>{" "}
+                <span className="ml-3">System Information</span>
+              </a>
+            </li>
+          </li>
+          {/* ... (other sidebar items) */}
+        </ul>
+      </div>
+    );
+}
+
+export default Sidebar;
